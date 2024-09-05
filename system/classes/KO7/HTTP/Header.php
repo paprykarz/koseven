@@ -356,6 +356,7 @@ class KO7_HTTP_Header extends ArrayObject {
 		if ($replace OR ! $this->offsetExists($index))
 		{
 			parent::offsetSet($index, $newval);
+			return;
 		}
 
 		$current_value = $this->offsetGet($index);
