@@ -96,7 +96,7 @@ class KO7_Encrypt {
 	 * @return KO7_Encrypt
 	 * @throws KO7_Exception
 	 */
-	public static function instance(string $name = NULL, array $config = NULL)
+	public static function instance(?string $name = NULL, ?array $config = NULL)
 	{
 		if ($name === NULL) {
 			// Use the default instance name
@@ -137,7 +137,7 @@ class KO7_Encrypt {
 	 * @return null|string
 	 * @throws Exception
 	 */
-	public function encode(string $message, string $iv = NULL)
+	public function encode(string $message, ?string $iv = NULL)
 	{
 		if ($iv === NULL) {
 			$iv = $this->_engine->create_iv();

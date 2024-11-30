@@ -131,7 +131,7 @@ class KO7_Database_PDO extends Database {
 		$this->_connection->exec('SET NAMES '.$this->quote($charset));
 	}
 
-	public function query($type, $sql, $as_object = FALSE, array $params = NULL)
+	public function query($type, $sql, $as_object = FALSE, ?array $params = NULL)
 	{
 		// Make sure the database is connected
 		$this->_connection or $this->connect();

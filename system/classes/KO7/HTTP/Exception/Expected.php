@@ -29,7 +29,7 @@ abstract class KO7_HTTP_Exception_Expected extends HTTP_Exception {
 	 * @param   array   $variables  translation variables
 	 * @return  void
 	 */
-	public function __construct($message = NULL, array $variables = NULL, Exception $previous = NULL)
+	public function __construct($message = NULL, ?array $variables = NULL, ?Exception $previous = NULL)
 	{
 		parent::__construct($message, $variables, $previous);
 

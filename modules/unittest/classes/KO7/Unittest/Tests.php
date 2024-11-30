@@ -109,7 +109,7 @@ class KO7_Unittest_Tests {
 	 *
 	 * @throws KO7_Exception
 	 */
-	public static function whitelist(Unittest_TestSuite $suite = NULL) : void
+	public static function whitelist(?Unittest_TestSuite $suite = NULL) : void
 	{
 		$directories = self::get_config_whitelist();
 		if (count($directories))

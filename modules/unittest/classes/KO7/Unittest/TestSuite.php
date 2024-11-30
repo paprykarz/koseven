@@ -36,7 +36,7 @@ abstract class KO7_Unittest_TestSuite extends TestSuite
 	 * @return ?TestResult
 	 * @throws ReflectionException
 	 */
-	public function run(TestResult $result = NULL): TestResult
+	public function run(?TestResult $result = NULL): TestResult
 	{
 		// Get the code coverage filter from the suite's result object
 		$coverage = FALSE;

@@ -208,7 +208,7 @@ class KO7_Cache_Redis extends Cache implements Cache_Tagging
      * @param   array    $tags       Tags [Optional]
      * @return  bool|null            Set|NotSet
      */
-    public function set_with_tags($id, $data, $lifetime = NULL, array $tags = NULL)
+    public function set_with_tags($id, $data, $lifetime = NULL, ?array $tags = NULL)
     {
         $id = $this->_sanitize_id($id);
         $result = $this->set($id, $data, $lifetime);

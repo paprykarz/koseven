@@ -36,7 +36,7 @@ abstract class KO7_Database_Result implements Countable, Iterator, SeekableItera
 	 * @param   array   $params
 	 * @return  void
 	 */
-	public function __construct($result, $sql, $as_object = FALSE, array $params = NULL)
+	public function __construct($result, $sql, $as_object = FALSE, ?array $params = NULL)
 	{
 		// Store the result locally
 		$this->_result = $result;

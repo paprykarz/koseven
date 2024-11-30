@@ -200,7 +200,7 @@ abstract class KO7_Image {
 	 *
 	 * @return  self
 	 */
-	public function resize(int $width = NULL, int $height = NULL, int $master = NULL)
+	public function resize(?int $width = NULL, ?int $height = NULL, ?int $master = NULL)
 	{
 		// Check if at least width or height was set
 		if ($width === NULL && $height === NULL)

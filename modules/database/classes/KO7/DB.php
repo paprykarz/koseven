@@ -72,7 +72,7 @@ class KO7_DB {
 	 * @param   array   $columns  columns to select
 	 * @return  Database_Query_Builder_Select
 	 */
-	public static function select_array(array $columns = NULL)
+	public static function select_array(?array $columns = NULL)
 	{
 		return new Database_Query_Builder_Select($columns);
 	}
@@ -87,7 +87,7 @@ class KO7_DB {
 	 * @param   array   $columns  list of column names or array($column, $alias) or object
 	 * @return  Database_Query_Builder_Insert
 	 */
-	public static function insert($table = NULL, array $columns = NULL)
+	public static function insert($table = NULL, ?array $columns = NULL)
 	{
 		return new Database_Query_Builder_Insert($table, $columns);
 	}

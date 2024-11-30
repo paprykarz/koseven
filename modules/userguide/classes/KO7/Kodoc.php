@@ -117,7 +117,7 @@ class KO7_Kodoc {
 	 * @param   array   array of files, obtained using KO7::list_files
 	 * @return  array   an array of all the class names
 	 */
-	public static function classes(array $list = NULL)
+	public static function classes(?array $list = NULL)
 	{
 		if ($list === NULL)
 		{
@@ -158,7 +158,7 @@ class KO7_Kodoc {
 	 * >     ~bluehawk
 	 *
 	 */
-	public static function class_methods(array $list = NULL)
+	public static function class_methods(?array $list = NULL)
 	{
 		$list = Kodoc::classes($list);
 

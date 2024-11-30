@@ -339,7 +339,7 @@ class KO7_Debug {
 	 * @param   array|null   $trace     Stack to trace
 	 * @return  string
 	 */
-	public static function trace(array $trace = NULL)
+	public static function trace(?array $trace = NULL)
 	{
 		if ($trace === NULL)
 		{

@@ -39,7 +39,7 @@ abstract class KO7_CacheBasicMethodsTest extends Unittest_TestCase {
 	 * @return  Cache
 	 * @return  self
 	 */
-	public function cache(Cache $cache = NULL)
+	public function cache(?Cache $cache = NULL)
 	{
 		if ($cache === NULL)
 			return $this->_cache_driver;

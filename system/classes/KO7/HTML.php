@@ -103,7 +103,7 @@ class KO7_HTML {
 	 * @uses    URL::site
 	 * @uses    HTML::attributes
 	 */
-	public static function anchor($uri, $title = NULL, array $attributes = NULL, $protocol = NULL, $index = TRUE)
+	public static function anchor($uri, $title = NULL, ?array $attributes = NULL, $protocol = NULL, $index = TRUE)
 	{
 		if ($title === NULL)
 		{
@@ -154,7 +154,7 @@ class KO7_HTML {
 	 * @uses    URL::base
 	 * @uses    HTML::attributes
 	 */
-	public static function file_anchor($file, $title = NULL, array $attributes = NULL, $protocol = NULL, $index = FALSE)
+	public static function file_anchor($file, $title = NULL, ?array $attributes = NULL, $protocol = NULL, $index = FALSE)
 	{
 		if ($title === NULL)
 		{
@@ -180,7 +180,7 @@ class KO7_HTML {
 	 * @return  string
 	 * @uses    HTML::attributes
 	 */
-	public static function mailto($email, $title = NULL, array $attributes = NULL)
+	public static function mailto($email, $title = NULL, ?array $attributes = NULL)
 	{
 		if ($title === NULL)
 		{
@@ -204,7 +204,7 @@ class KO7_HTML {
 	 * @uses    URL::base
 	 * @uses    HTML::attributes
 	 */
-	public static function style($file, array $attributes = NULL, $protocol = NULL, $index = FALSE)
+	public static function style($file, ?array $attributes = NULL, $protocol = NULL, $index = FALSE)
 	{
 		if (strpos($file, '://') === FALSE AND strncmp($file, '//', 2))
 		{
@@ -237,7 +237,7 @@ class KO7_HTML {
 	 * @uses    URL::base
 	 * @uses    HTML::attributes
 	 */
-	public static function script($file, array $attributes = NULL, $protocol = NULL, $index = FALSE)
+	public static function script($file, ?array $attributes = NULL, $protocol = NULL, $index = FALSE)
 	{
 		if (strpos($file, '://') === FALSE AND strncmp($file, '//', 2))
 		{
@@ -267,7 +267,7 @@ class KO7_HTML {
 	 * @uses    URL::base
 	 * @uses    HTML::attributes
 	 */
-	public static function image($file, array $attributes = NULL, $protocol = NULL, $index = FALSE)
+	public static function image($file, ?array $attributes = NULL, $protocol = NULL, $index = FALSE)
 	{
 		if (strpos($file, '://') === FALSE AND strncmp($file, '//', 2) AND strncmp($file, 'data:', 5))
 		{
@@ -290,7 +290,7 @@ class KO7_HTML {
 	 * @param   array   $attributes attribute list
 	 * @return  string
 	 */
-	public static function attributes(array $attributes = NULL)
+	public static function attributes(?array $attributes = NULL)
 	{
 		if (empty($attributes))
 			return '';
@@ -353,7 +353,7 @@ class KO7_HTML {
 	 * @return  string
 	 * @uses    HTML::attributes
 	 */
-	public static function tag($type, $content = NULL, array $attributes = NULL): string
+	public static function tag($type, $content = NULL, ?array $attributes = NULL): string
 	{
 		if ( ! is_array($attributes))
 			$attributes = [];

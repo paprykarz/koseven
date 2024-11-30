@@ -174,7 +174,7 @@ class KO7_Core {
 	 * @uses    KO7::cache
 	 * @uses    Profiler
 	 */
-	public static function init(array $settings = NULL)
+	public static function init(?array $settings = NULL)
 	{
 		if (KO7::$_init)
 		{
@@ -481,7 +481,7 @@ class KO7_Core {
 	 * @param   array   $modules    list of module paths
 	 * @return  array   enabled modules
 	 */
-	public static function modules(array $modules = NULL)
+	public static function modules(?array $modules = NULL)
 	{
 		if ($modules === NULL)
 		{
@@ -689,7 +689,7 @@ class KO7_Core {
 	 *
 	 * @return  array
 	 */
-	public static function list_files($directory = NULL, array $paths = NULL, $ext = NULL, $sort = NULL)
+	public static function list_files($directory = NULL, ?array $paths = NULL, $ext = NULL, $sort = NULL)
 	{
 		if ($directory !== NULL)
 		{

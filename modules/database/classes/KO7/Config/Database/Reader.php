@@ -21,7 +21,7 @@ class KO7_Config_Database_Reader implements KO7_Config_Reader
 	 *
 	 * @param array Configuration for the reader
 	 */
-	public function __construct(array $config = NULL)
+	public function __construct(?array $config = NULL)
 	{
 		if (isset($config['instance']))
 		{

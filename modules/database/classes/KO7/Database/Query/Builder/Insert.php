@@ -27,7 +27,7 @@ class KO7_Database_Query_Builder_Insert extends Database_Query_Builder {
 	 * @param   array  $columns  column names
 	 * @return  void
 	 */
-	public function __construct($table = NULL, array $columns = NULL)
+	public function __construct($table = NULL, ?array $columns = NULL)
 	{
 		if ($table)
 		{

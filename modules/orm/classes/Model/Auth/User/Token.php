@@ -57,7 +57,7 @@ class Model_Auth_User_Token extends ORM {
 		return $this;
 	}
 
-	public function create(Validation $validation = NULL)
+	public function create(?Validation $validation = NULL)
 	{
 		$this->token = $this->create_token();
 

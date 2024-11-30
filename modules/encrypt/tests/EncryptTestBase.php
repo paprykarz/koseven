@@ -87,7 +87,7 @@ abstract class EncryptTestBase extends Unittest_TestCase {
 	 * @return void
 	 * @throws KO7_Exception
 	 */
-	public function set_config(array $config, string $name = NULL)
+	public function set_config(array $config, ?string $name = NULL)
 	{
 		if ($name === NULL) {
 			$name = Encrypt::$default;

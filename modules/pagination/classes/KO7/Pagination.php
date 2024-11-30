@@ -70,7 +70,7 @@ class KO7_Pagination {
 	 * @param   array  configuration
 	 * @return  Pagination
 	 */
-	public static function factory(array $config = [], Request $request = NULL)
+	public static function factory(array $config = [], ?Request $request = NULL)
 	{
 		return new Pagination($config, $request);
 	}
@@ -81,7 +81,7 @@ class KO7_Pagination {
 	 * @param   array  configuration
 	 * @return  void
 	 */
-	public function __construct(array $config = [], Request $request = NULL)
+	public function __construct(array $config = [], ?Request $request = NULL)
 	{
 		// Overwrite system defaults with application defaults
 		$this->config = $this->config_group() + $this->config;
@@ -291,7 +291,7 @@ class KO7_Pagination {
 	 * @return	Request	If used as getter
 	 * @return	$this	Chainable as setter
 	 */
-	public function request(Request $request = NULL)
+	public function request(?Request $request = NULL)
 	{
 		if ($request === NULL)
 			return $this->_request;
@@ -308,7 +308,7 @@ class KO7_Pagination {
 	 * @return	Route	Route if used as getter
 	 * @return	$this	Chainable as setter
 	 */
-	public function route(Route $route = NULL)
+	public function route(?Route $route = NULL)
 	{
 		if ($route === NULL)
 			return $this->_route;
@@ -325,7 +325,7 @@ class KO7_Pagination {
 	 * @return	array	Route parameters if used as getter
 	 * @return	$this	Chainable as setter
 	 */
-	public function route_params(array $route_params = NULL)
+	public function route_params(?array $route_params = NULL)
 	{
 		if ($route_params === NULL)
 			return $this->_route_params;
@@ -341,7 +341,7 @@ class KO7_Pagination {
 	 * @param	array	Parameters to override
 	 * @return	string
 	 */
-	public function query(array $params = NULL)
+	public function query(?array $params = NULL)
 	{
 		if ($params === NULL)
 		{

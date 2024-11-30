@@ -19,7 +19,7 @@ class KO7_Error_Exception extends ErrorException {
 	 * @param   Throwable       $previous   Previous throwable
 	 * @return  void
 	 */
-	public function __construct(string $message = '', array $variables = NULL, int $code = 0, int $severity = 1, string $file = __FILE__, int $line = __LINE__, $previous = NULL)
+	public function __construct(string $message = '', ?array $variables = NULL, int $code = 0, int $severity = 1, string $file = __FILE__, int $line = __LINE__, $previous = NULL)
 	{
 		// Set the message
 		$message = I18n::get([$message, $variables]);

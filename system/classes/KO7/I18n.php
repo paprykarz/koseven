@@ -58,7 +58,7 @@ class KO7_I18n {
 	 * @return  string
 	 * @since   3.0.2
 	 */
-	public static function lang(string $lang = NULL) : string
+	public static function lang(?string $lang = NULL) : string
 	{
 		if ($lang && $lang !== I18n::$lang)
 		{
@@ -79,7 +79,7 @@ class KO7_I18n {
 	 * @param   string		  $source Source Language
 	 * @return  string
 	 */
-	public static function get($string, string $lang = NULL, string $source = NULL)
+	public static function get($string, ?string $lang = NULL, ?string $source = NULL)
 	{
 		$values = [];
 
@@ -188,7 +188,7 @@ if ( ! function_exists('__'))
 	 *
 	 * @return  string
 	 */
-	function __(string $string, array $values = NULL, $lang = NULL)
+	function __(string $string, ?array $values = NULL, $lang = NULL)
 	{
 		return I18n::get($values ? [$string, $values] : $string, NULL, $lang);
 	}
