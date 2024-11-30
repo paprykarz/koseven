@@ -1,72 +1,72 @@
 <?php
 
-abstract class KO7_HTTP_Exception extends KO7_Exception {
+abstract class KO7_HTTP_Exception extends KO7_Exception
+{
+    /**
+     * Creates an HTTP_Exception of the specified type.
+     *
+     * @param   integer $code       the http status code
+     * @param   string  $message    status message, custom content to display with error
+     * @param   array   $variables  translation variables
+     * @return  HTTP_Exception
+     */
+    public static function factory($code, $message = null, ?array $variables = null, ?Exception $previous = null)
+    {
+        $class = 'HTTP_Exception_' . $code;
 
-	/**
-	 * Creates an HTTP_Exception of the specified type.
-	 *
-	 * @param   integer $code       the http status code
-	 * @param   string  $message    status message, custom content to display with error
-	 * @param   array   $variables  translation variables
-	 * @return  HTTP_Exception
-	 */
-	public static function factory($code, $message = NULL, ?array $variables = NULL, ?Exception $previous = NULL)
-	{
-		$class = 'HTTP_Exception_'.$code;
+        return new $class($message, $variables, $previous);
+    }
 
-		return new $class($message, $variables, $previous);
-	}
+    /**
+     * @var  int        http status code
+     */
+    protected $_code = 0;
 
-	/**
-	 * @var  int        http status code
-	 */
-	protected $_code = 0;
+    /**
+     * @var  Request    Request instance that triggered this exception.
+     */
+    protected $_request;
 
-	/**
-	 * @var  Request    Request instance that triggered this exception.
-	 */
-	protected $_request;
+    /**
+     * Creates a new translated exception.
+     *
+     *     throw new KO7_Exception('Something went terrible wrong, :user',
+     *         array(':user' => $user));
+     *
+     * @param   string  $message    status message, custom content to display with error
+     * @param   array   $variables  translation variables
+     * @return  void
+     */
+    public function __construct($message = '', ?array $variables = null, ?Exception $previous = null)
+    {
+        parent::__construct($message, $variables, $this->_code, $previous);
+    }
 
-	/**
-	 * Creates a new translated exception.
-	 *
-	 *     throw new KO7_Exception('Something went terrible wrong, :user',
-	 *         array(':user' => $user));
-	 *
-	 * @param   string  $message    status message, custom content to display with error
-	 * @param   array   $variables  translation variables
-	 * @return  void
-	 */
-	public function __construct($message = '', array $variables = NULL, Exception $previous = NULL)
-	{
-		parent::__construct($message, $variables, $this->_code, $previous);
-	}
+    /**
+     * Store the Request that triggered this exception.
+     *
+     * @param   Request   $request  Request object that triggered this exception.
+     * @return  HTTP_Exception
+     */
+    public function request(?Request $request = null)
+    {
+        if ($request === null) {
+            return $this->_request;
+        }
 
-	/**
-	 * Store the Request that triggered this exception.
-	 *
-	 * @param   Request   $request  Request object that triggered this exception.
-	 * @return  HTTP_Exception
-	 */
-	public function request(?Request $request = NULL)
-	{
-		if ($request === NULL)
-			return $this->_request;
+        $this->_request = $request;
 
-		$this->_request = $request;
+        return $this;
+    }
 
-		return $this;
-	}
-
-	/**
-	 * Generate a Response for the current Exception
-	 *
-	 * @uses   KO7_Exception::response()
-	 * @return Response
-	 */
-	public function get_response()
-	{
-		return KO7_Exception::response($this);
-	}
-
+    /**
+     * Generate a Response for the current Exception
+     *
+     * @uses   KO7_Exception::response()
+     * @return Response
+     */
+    public function get_response()
+    {
+        return KO7_Exception::response($this);
+    }
 }
