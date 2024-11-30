@@ -53,7 +53,7 @@ class KO7_KO7_Exception extends Exception {
         $message = I18n::get([$message, $variables]);
 
         // Pass the message and integer code to the parent
-        parent::__construct($message, (int) $code, $previous);
+        parent::__construct($message ?? '', (int) $code, $previous);
 
         // Save the unmodified code
         // @link http://bugs.php.net/39615
