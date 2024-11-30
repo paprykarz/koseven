@@ -813,7 +813,7 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 
 		foreach ($headers as $header)
 		{
-			
+
 			$this->assertEquals(strlen($header), $http_header->parse_header_string(NULL, $header));
 		}
 
@@ -965,7 +965,7 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 				TRUE,
 				FALSE
 			],
-			
+
 		];
 	}
 

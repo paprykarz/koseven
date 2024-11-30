@@ -19,7 +19,7 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 	 * @var  string  base url for images
 	 */
 	public static $image_url = '';
-	
+
 	/**
 	 * Currently defined heading ids.
 	 * Used to prevent creating multiple headings with same id.
@@ -27,18 +27,18 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 	 * @var  array
 	 */
 	protected $_heading_ids = [];
-	
+
 	/**
 	 * @var  array   the generated table of contents
 	 */
 	protected static $_toc = [];
-	
+
 	/**
 	 * Slightly less terrible way to make it so the TOC only shows up when we
 	 * want it to.  set this to true to show the toc.
 	 */
 	public static $show_toc = FALSE;
-	
+
 	/**
 	 * Transform some text using [Kodoc_Markdown]
 	 *
@@ -82,7 +82,7 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 		// Call parent constructor.
 		parent::__construct();
 	}
-	
+
 	/**
 	 * Callback for the heading setext style
 	 * 
@@ -98,20 +98,20 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 			return $matches[0];
 		$level = ($matches[3][0] == '=') ? 1 : 2;
 		$attr  = $this->_doHeaders_attr($id =& $matches[2]);
-		
+
 		// Only auto-generate id if one doesn't exist
 		if (empty($attr))
 		{
 			$attr = ' id="'.$this->make_heading_id($matches[1]).'"';
 		}
-		
+
 		// Add this header to the page toc
 		$this->_add_to_toc($level,$matches[1],$this->make_heading_id($matches[1]));
-		
+
 		$block = "<h$level$attr>".$this->runSpanGamut($matches[1])."</h$level>";
 		return "\n".$this->hashBlock($block)."\n\n";
 	}
-	
+
 	/**
 	 * Callback for the heading atx style
 	 *
@@ -124,21 +124,21 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 	{
 		$level = strlen($matches[1]);
 		$attr  = $this->_doHeaders_attr($id =& $matches[3]);
-		
+
 		// Only auto-generate id if one doesn't exist
 		if (empty($attr))
 		{
 			$attr = ' id="'.$this->make_heading_id($matches[2]).'"';
 		}
-		
+
 		// Add this header to the page toc
 		$this->_add_to_toc($level, $matches[2], $this->make_heading_id(empty($matches[3]) ? $matches[2] : $matches[3]));
-		
+
 		$block = "<h$level$attr>".$this->runSpanGamut($matches[2])."</h$level>";
 		return "\n".$this->hashBlock($block)."\n\n";
 	}
 
-	
+
 	/**
 	 * Makes a heading id from the heading text
 	 * If any heading share the same name then subsequent headings will have an integer appended
@@ -149,13 +149,13 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 	function make_heading_id($heading)
 	{
 		$id = url::title($heading, '-', TRUE);
-		
+
 		if (isset($this->_heading_ids[$id]))
 		{
 			$id .= '-';
-			
+
 			$count = 0;
-			
+
 			while (isset($this->_heading_ids[$id]) AND ++$count)
 			{
 				$id .= $count;
@@ -259,7 +259,7 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 
 		return $this->hashBlock('<p class="note">'.$match[1].'</p>');
 	}
-	
+
 	protected function _add_to_toc($level, $name, $id)
 	{
 		self::$_toc[] = [

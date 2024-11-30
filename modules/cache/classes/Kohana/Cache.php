@@ -310,7 +310,7 @@ abstract class Kohana_Cache {
 	{
 		$id = '';
 	}
-	
+
         // adding cache prefix to avoid duplicates
         $prefix = '';
         // configuration for the specific cache group

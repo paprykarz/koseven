@@ -26,7 +26,7 @@ class Kohana_Database_Query_Builder_Insert extends Database_Query_Builder {
 	 * @param   array  $columns  column names
 	 * @return  void
 	 */
-	public function __construct($table = NULL, array $columns = NULL)
+	public function __construct($table = NULL, ?array $columns = NULL)
 	{
 		if ($table)
 		{
@@ -89,7 +89,7 @@ class Kohana_Database_Query_Builder_Insert extends Database_Query_Builder {
 
 		// Get all of the passed values
 		$values = func_get_args();
-		
+
 		foreach ($values as $value)
 		{
 			$this->_values[] = $value;

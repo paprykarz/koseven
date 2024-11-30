@@ -392,7 +392,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 
 		$this->assertEquals($expect_body, $data['body']);
 	}
-	
+
 	/**
 	 * Tests that the Request_Client is protected from too many recursions of
 	 * requests triggered by header callbacks.
