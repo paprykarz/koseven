@@ -37,7 +37,7 @@ abstract class KO7_HTTP_Exception extends KO7_Exception {
 	 * @param   array   $variables  translation variables
 	 * @return  void
 	 */
-	public function __construct($message = NULL, ?array $variables = NULL, ?Exception $previous = NULL)
+	public function __construct($message = '', array $variables = NULL, Exception $previous = NULL)
 	{
 		parent::__construct($message, $variables, $this->_code, $previous);
 	}
