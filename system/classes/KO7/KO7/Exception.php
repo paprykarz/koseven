@@ -20,7 +20,6 @@ class KO7_KO7_Exception extends Exception {
         E_PARSE              => 'Parse Error',
         E_WARNING            => 'Warning',
         E_USER_WARNING       => 'User Warning',
-        E_STRICT             => 'Strict',
         E_NOTICE             => 'Notice',
         E_RECOVERABLE_ERROR  => 'Recoverable Error',
         E_DEPRECATED         => 'Deprecated',
