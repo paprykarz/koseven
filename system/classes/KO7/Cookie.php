@@ -179,7 +179,7 @@ class KO7_Cookie {
 	 */
 	protected static function _setcookie($name, $value, $expire, $path, $domain, $secure, $httponly)
 	{
-		return setcookie($name, $value, $expire, $path, $domain, $secure, $httponly);
+        return setcookie($name, $value, $expire, $path, $domain ?? '', $secure, $httponly);
 	}
 
 	/**
