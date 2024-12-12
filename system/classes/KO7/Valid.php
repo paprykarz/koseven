@@ -178,7 +178,7 @@ class KO7_Valid {
 			# path (optional)
 			(?:/.*)?
 
-			$~iDx', $url, $matches))
+			$~iDx', (string) $url, $matches))
 			return FALSE;
 
 		// We matched an IP address
@@ -264,7 +264,7 @@ class KO7_Valid {
 			return FALSE;
 
 		// Check card number prefix
-		if ( ! preg_match('/^'.$cards[$type]['prefix'].'/', $number))
+		if ( ! preg_match('/^'.$cards[$type]['prefix'].'/', (string) $number))
 			return FALSE;
 
 		// No Luhn check required
@@ -363,7 +363,7 @@ class KO7_Valid {
 
 		if ($utf8 === TRUE)
 		{
-			return (bool) preg_match('/^\pL++$/uD', $str);
+			return (bool) preg_match('/^\pL++$/uD', (string) $str);
 		}
 		else
 		{
@@ -382,7 +382,7 @@ class KO7_Valid {
 	{
 		if ($utf8 === TRUE)
 		{
-			return (bool) preg_match('/^[\pL\pN]++$/uD', $str);
+			return (bool) preg_match('/^[\pL\pN]++$/uD', (string) $str);
 		}
 		else
 		{
@@ -408,7 +408,7 @@ class KO7_Valid {
 			$regex = '/^[-a-z0-9_]++$/iD';
 		}
 
-		return (bool) preg_match($regex, $str);
+		return (bool) preg_match($regex, (string) $str);
 	}
 
 	/**
@@ -422,7 +422,7 @@ class KO7_Valid {
 	{
 		if ($utf8 === TRUE)
 		{
-			return (bool) preg_match('/^\pN++$/uD', $str);
+			return (bool) preg_match('/^\pN++$/uD', (string) $str);
 		}
 		else
 		{
@@ -500,7 +500,7 @@ class KO7_Valid {
 		// Get the decimal point for the current locale
 		list($decimal) = array_values(localeconv());
 
-		return (bool) preg_match('/^[+-]?[0-9]'.$digits.preg_quote($decimal).'[0-9]{'.( (int) $places).'}$/D', $str);
+		return (bool) preg_match('/^[+-]?[0-9]'.$digits.preg_quote($decimal).'[0-9]{'.( (int) $places).'}$/D', (string) $str);
 	}
 
 	/**
@@ -513,7 +513,7 @@ class KO7_Valid {
 	 */
 	public static function color($str)
 	{
-		return (bool) preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/iD', $str);
+		return (bool) preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/iD', (string) $str);
 	}
 
 	/**
