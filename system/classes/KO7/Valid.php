@@ -347,7 +347,7 @@ class KO7_Valid {
 	 */
 	public static function date($str)
 	{
-		return (strtotime($str) !== FALSE);
+		return (strtotime($str ?? '') !== FALSE);
 	}
 
 	/**
