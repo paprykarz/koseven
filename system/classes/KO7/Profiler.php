@@ -34,7 +34,7 @@ class KO7_Profiler {
 	 * @param   string  $name   benchmark name
 	 * @return  string
 	 */
-	public static function start($group, $name)
+        public static function start($group, $name, $backtrace = null)
 	{
 		static $counter = 0;
 
@@ -46,6 +46,7 @@ class KO7_Profiler {
 			'name'  => (string) $name,
 
 			// Start the benchmark
+                        'backtrace' => $backtrace,
 			'start_time'   => microtime(TRUE),
 			'start_memory' => memory_get_usage(),
 
@@ -101,6 +102,9 @@ class KO7_Profiler {
 
 		foreach (Profiler::$_marks as $token => $mark)
 		{
+                        if ($mark['backtrace'] ?? false) {
+                            $groups[$mark['group']][$mark['name']]['backtrace'] = $mark['backtrace'];
+                        }
 			// Sort the tokens by the group and name
 			$groups[$mark['group']][$mark['name']][] = $token;
 		}
@@ -131,6 +135,9 @@ class KO7_Profiler {
 
 		foreach ($tokens as $token)
 		{
+                        if (!is_string($token)) {
+                            continue;
+                        }
 			// Get the total time and memory for this benchmark
 			list($time, $memory) = Profiler::total($token);
 

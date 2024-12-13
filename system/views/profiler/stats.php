@@ -24,10 +24,28 @@ $application_cols = ['min', 'max', 'average', 'current'];
 			<th class="<?php echo $key ?>"><?php echo I18n::get(ucfirst($key)) ?></th>
 			<?php endforeach ?>
 		</tr>
-		<?php foreach ($benchmarks as $name => $tokens): ?>
+                <?php foreach ($benchmarks as $name => $tokens): 
+                    $backtrace = $tokens['backtrace'] ?? [];
+                    unset($tokens['backtrace']);
+                ?>
 		<tr class="mark time">
 			<?php $stats = Profiler::stats($tokens) ?>
-			<th class="name" rowspan="2" scope="rowgroup"><?php echo HTML::chars($name), ' (', count($tokens), ')' ?></th>
+                        <th class="name" rowspan="2" scope="rowgroup"><?php echo HTML::chars($name), ' (', count($tokens), ')' ?>
+                        <div class="backtrace">
+                        <?php if ([] !== $backtrace ??= []):
+                            foreach ($backtrace ?? [] as $frame): 
+                            if (!isset($frame['file'])) continue;
+                        ?>
+
+                            <div style="">
+                                <a href="xdebug://x?url=<?php echo $frame['file']; ?>&line=<?php echo $frame['line']; ?>">
+                                <?php printf('%s:%s', str_replace(DOCROOT, '', $frame['file']), $frame['line']); ?>
+                                </a>
+                            </div>
+                            <?php endforeach ?>
+                        <?php endif; ?>
+                        </div>
+</th>
 			<?php foreach ($group_cols as $key): ?>
 			<td class="<?php echo $key ?>">
 				<div>

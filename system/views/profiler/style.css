@@ -1,12 +1,13 @@
 .ko7 table.profiler { width: 99%; margin: 0 auto 1em; border-collapse: collapse; }
 .ko7 table.profiler th,
-.ko7 table.profiler td { padding: 0.2em 0.4em; background: #fff; border: solid 1px #999; border-width: 1px 0; text-align: left; font-weight: normal; font-size: 1em; color: #111; vertical-align: top; text-align: right; }
+.ko7 table.profiler td { padding: 0.2em 0.4em; background: #fff; border: solid 1px #999; border-width: 1px 0; text-align: left; font-weight: normal; font-size: 0.8em; color: #111; vertical-align: top; text-align: right; }
 .ko7 table.profiler th.name { text-align: left; }
-.ko7 table.profiler tr.group th { font-size: 1.4em; background: #222; color: #eee; border-color: #222; }
+.ko7 table.profiler tr.group th { font-size: 1.1em; background: #222; color: #eee; border-color: #222; }
 .ko7 table.profiler tr.group td { background: #222; color: #777; border-color: #222; }
 .ko7 table.profiler tr.group td.time { padding-bottom: 0; }
 .ko7 table.profiler tr.headers th { text-transform: lowercase; font-variant: small-caps; background: #ddd; color: #777; }
-.ko7 table.profiler tr.mark th.name { width: 40%; font-size: 1.2em; background: #fff; vertical-align: middle; }
+.ko7 table.profiler tr.mark th.name { width: 40%; font-size: 1.0em; background: #fff; vertical-align: middle; font-family: Monospace; }
+.ko7 table.profiler tr.mark .backtrace { margin-top: 1em; font-size: 0.9em; }
 .ko7 table.profiler tr.mark td { padding: 0; }
 .ko7 table.profiler tr.mark.final td { padding: 0.2em 0.4em; }
 .ko7 table.profiler tr.mark td > div { position: relative; padding: 0.2em 0.4em; }

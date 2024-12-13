@@ -156,8 +156,9 @@ class KO7_Database_MySQLi extends Database {
 
 		if (KO7::$profiling)
 		{
+                        $backtrace = array_map(array: debug_backtrace(options: 2), callback: fn (array $frame) => sprintf('%s:%s', $frame['file'], $frame['line']));
 			// Benchmark this query for the current instance
-			$benchmark = Profiler::start("Database ({$this->_instance})", $sql);
+			$benchmark = Profiler::start("Database ({$this->_instance})", $sql, $backtrace);
 		}
 
 		// Execute the query
