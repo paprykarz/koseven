@@ -79,7 +79,12 @@ $error_id = uniqid('error', false);
                                 <?php endif ?>
                             </span>
                             &raquo;
-                            <?php echo $step['function'] ?>(
+                            <?php if ($step['file']): ?>
+                            <a href="xdebug://x?url=<?php echo $step['file']; ?>&line=<?php echo $step['line']; ?>"><?php echo $step['function']; ?> </a>
+                            <?php else: ?>
+                            <?php echo $step['function']; ?>
+                            <?php endif ?>
+                                (
                                 <?php if ($step['args']): $args_id = $error_id.'args'.$i; ?>
                                     <a href="#<?php echo $args_id ?>" onclick="return toggle('<?php echo $args_id ?>')">
                                         <?php echo I18n::get('arguments') ?>
