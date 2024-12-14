@@ -61,7 +61,7 @@ $error_id = uniqid('error', false);
             <div id="<?php echo $error_id ?>" class="content">
                 <p>
                     <span class="file">
-                        <?php echo Debug::path($file) ?> [ <?php echo $line ?> ]
+                        <a href="xdebug://x?url=<?php echo $file; ?>&line=<?php echo $line; ?>"><?php echo Debug::path($file) ?> [ <?php echo $line ?> ]</a>
                     </span>
                 </p>
                 <?php echo Debug::source($file, $line) ?>
@@ -80,7 +80,7 @@ $error_id = uniqid('error', false);
                             </span>
                             &raquo;
                             <?php if ($step['file']): ?>
-                            <a href="xdebug://x?url=<?php echo $step['file']; ?>&line=<?php echo $step['line']; ?>"><?php echo $step['function']; ?> </a>
+                            <a href="xdebug://x?url=<?php echo $step['file']; ?>&line=<?php echo $step['line']; ?>"><?php echo $step['function']; ?></a>
                             <?php else: ?>
                             <?php echo $step['function']; ?>
                             <?php endif ?>
