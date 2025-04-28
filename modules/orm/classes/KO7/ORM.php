@@ -1062,7 +1062,7 @@ class KO7_ORM extends Model implements Serializable
      *
      * @chainable
      * @throws KO7_Exception
-     * @return ORM
+     * @return static
      */
     public function find()
     {
