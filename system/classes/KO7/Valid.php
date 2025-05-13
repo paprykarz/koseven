@@ -1,4 +1,7 @@
 <?php
+
+use Infection\Str;
+
 /**
  * Validation rules.
  *
@@ -392,12 +395,8 @@ class KO7_Valid {
 
 	/**
 	 * Checks whether a string consists of alphabetical characters, numbers, underscores and dashes only.
-	 *
-	 * @param   string  $str    input string
-	 * @param   boolean $utf8   trigger UTF-8 compatibility
-	 * @return  boolean
 	 */
-	public static function alpha_dash($str, $utf8 = FALSE)
+	public static function alpha_dash(?string $str, $utf8 = FALSE): bool
 	{
 		if ($utf8 === TRUE)
 		{
@@ -408,17 +407,13 @@ class KO7_Valid {
 			$regex = '/^[-a-z0-9_]++$/iD';
 		}
 
-		return (bool) preg_match($regex, (string) $str);
+		return (bool) preg_match($regex, (string) $str ?? '');
 	}
 
 	/**
 	 * Checks whether a string consists of digits only (no dots or dashes).
-	 *
-	 * @param   string  $str    input string
-	 * @param   boolean $utf8   trigger UTF-8 compatibility
-	 * @return  boolean
 	 */
-	public static function digit($str, $utf8 = FALSE)
+    public static function digit(?string $str, $utf8 = FALSE): bool
 	{
 		if ($utf8 === TRUE)
 		{
@@ -426,7 +421,7 @@ class KO7_Valid {
 		}
 		else
 		{
-			return (is_int($str) AND $str >= 0) OR ctype_digit($str);
+			return (is_int($str) AND $str >= 0) OR ctype_digit($str ?? '');
 		}
 	}
 
