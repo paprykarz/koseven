@@ -10,9 +10,10 @@
  * @license    https://koseven.dev/LICENSE
  */
 class KO7_Database_Query_Builder_Select extends Database_Query_Builder_Where {
-
 	// SELECT ...
 	protected $_select = [];
+
+	protected bool $_sql_calc_found_rows = false;
 
 	// DISTINCT
 	protected $_distinct = FALSE;
@@ -83,6 +84,13 @@ class KO7_Database_Query_Builder_Select extends Database_Query_Builder_Where {
 
 		return $this;
 	}
+     
+    public function sqlCalcFoundRows(): static
+    {
+        $this->_sql_calc_found_rows = true;
+
+		return $this;
+    }
 
 	/**
 	 * Choose the columns to select from, using an array.
@@ -337,6 +345,8 @@ class KO7_Database_Query_Builder_Select extends Database_Query_Builder_Where {
 
 		// Start a selection query
 		$query = 'SELECT ';
+
+                $query .= $this->_sql_calc_found_rows ? 'SQL_CALC_FOUND_ROWS ' : '';
 
 		if ($this->_distinct === TRUE)
 		{

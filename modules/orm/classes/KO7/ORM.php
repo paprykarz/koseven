@@ -2179,6 +2179,13 @@ class KO7_ORM extends Model implements Serializable
         return $this;
     }
 
+    public function sqlCalcFoundRows(): static
+    {
+        $this->_db_pending[] = ['name' => 'sqlCalcFoundRows', 'args' => []];
+
+        return $this;
+    }
+
     /**
      * Choose the tables to select "FROM ..."
      *
