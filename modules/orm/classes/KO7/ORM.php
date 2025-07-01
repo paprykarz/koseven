@@ -2166,7 +2166,7 @@ class KO7_ORM extends Model implements Serializable
      *
      * @param   mixed  $columns  column name or array($column, $alias) or object
      * @param   ...
-     * @return  ORM
+     * @return  static
      */
     public function select(...$columns)
     {
