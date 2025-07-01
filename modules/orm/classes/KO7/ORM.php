@@ -55,7 +55,7 @@ class KO7_ORM extends Model implements Serializable
      * @chainable
      * @param   string  $model  Model name
      * @param   mixed   $id     Parameter for find()
-     * @return  ORM
+     * @return  static
      */
     public static function factory($model, $id = null)
     {
@@ -448,7 +448,7 @@ class KO7_ORM extends Model implements Serializable
      *
      * @chainable
      * @param   boolean $force Force reloading
-     * @return  ORM
+     * @return  static
      */
     public function reload_columns($force = false)
     {
@@ -1974,7 +1974,7 @@ class KO7_ORM extends Model implements Serializable
      * @param   mixed   $column  column name or array($column, $alias) or object
      * @param   string  $op      logic operator
      * @param   mixed   $value   column value
-     * @return  ORM
+     * @return  static
      */
     public function where($column, $op, $value)
     {
@@ -1993,7 +1993,7 @@ class KO7_ORM extends Model implements Serializable
      * @param   mixed   $column  column name or array($column, $alias) or object
      * @param   string  $op      logic operator
      * @param   mixed   $value   column value
-     * @return  ORM
+     * @return  static
      */
     public function and_where($column, $op, $value)
     {
@@ -2012,7 +2012,7 @@ class KO7_ORM extends Model implements Serializable
      * @param   mixed   $column  column name or array($column, $alias) or object
      * @param   string  $op      logic operator
      * @param   mixed   $value   column value
-     * @return  ORM
+     * @return  static
      */
     public function or_where($column, $op, $value)
     {
@@ -2028,7 +2028,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Alias of and_where_open()
      *
-     * @return  ORM
+     * @return  static
      */
     public function where_open()
     {
@@ -2038,7 +2038,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Opens a new "AND WHERE (...)" grouping.
      *
-     * @return  ORM
+     * @return  static
      */
     public function and_where_open()
     {
@@ -2054,7 +2054,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Opens a new "OR WHERE (...)" grouping.
      *
-     * @return  ORM
+     * @return  static
      */
     public function or_where_open()
     {
@@ -2070,7 +2070,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Closes an open "AND WHERE (...)" grouping.
      *
-     * @return  ORM
+     * @return  static
      */
     public function where_close()
     {
@@ -2080,7 +2080,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Closes an open "AND WHERE (...)" grouping.
      *
-     * @return  ORM
+     * @return  static
      */
     public function and_where_close()
     {
@@ -2096,7 +2096,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Closes an open "OR WHERE (...)" grouping.
      *
-     * @return  ORM
+     * @return  static
      */
     public function or_where_close()
     {
@@ -2114,7 +2114,7 @@ class KO7_ORM extends Model implements Serializable
      *
      * @param   mixed   $column     column name or array($column, $alias) or object
      * @param   string  $direction  direction of sorting
-     * @return  ORM
+     * @return  static
      */
     public function order_by($column, $direction = null)
     {
@@ -2131,7 +2131,7 @@ class KO7_ORM extends Model implements Serializable
      * Return up to "LIMIT ..." results
      *
      * @param   integer  $number  maximum results to return
-     * @return  ORM
+     * @return  static
      */
     public function limit($number)
     {
@@ -2148,7 +2148,7 @@ class KO7_ORM extends Model implements Serializable
      * Enables or disables selecting only unique columns using "SELECT DISTINCT"
      *
      * @param   boolean  $value  enable or disable distinct columns
-     * @return  ORM
+     * @return  static
      */
     public function distinct($value)
     {
@@ -2191,7 +2191,7 @@ class KO7_ORM extends Model implements Serializable
      *
      * @param   mixed  $tables  table name or array($table, $alias) or object
      * @param   ...
-     * @return  ORM
+     * @return  static
      */
     public function from(...$tables)
     {
@@ -2209,7 +2209,7 @@ class KO7_ORM extends Model implements Serializable
      *
      * @param   mixed   $table  column name or array($column, $alias) or object
      * @param   string  $type   join type (LEFT, RIGHT, INNER, etc)
-     * @return  ORM
+     * @return  static
      */
     public function join($table, $type = null)
     {
@@ -2228,7 +2228,7 @@ class KO7_ORM extends Model implements Serializable
      * @param   mixed   $c1  column name or array($column, $alias) or object
      * @param   string  $op  logic operator
      * @param   mixed   $c2  column name or array($column, $alias) or object
-     * @return  ORM
+     * @return  static
      */
     public function on($c1, $op, $c2)
     {
@@ -2246,7 +2246,7 @@ class KO7_ORM extends Model implements Serializable
      *
      * @param   mixed   $columns  column name or array($column, $alias) or object
      * @param   ...
-     * @return  ORM
+     * @return  static
      */
     public function group_by(...$columns)
     {
@@ -2265,7 +2265,7 @@ class KO7_ORM extends Model implements Serializable
      * @param   mixed   $column  column name or array($column, $alias) or object
      * @param   string  $op      logic operator
      * @param   mixed   $value   column value
-     * @return  ORM
+     * @return  static
      */
     public function having($column, $op, $value = null)
     {
@@ -2278,7 +2278,7 @@ class KO7_ORM extends Model implements Serializable
      * @param   mixed   $column  column name or array($column, $alias) or object
      * @param   string  $op      logic operator
      * @param   mixed   $value   column value
-     * @return  ORM
+     * @return  static
      */
     public function and_having($column, $op, $value = null)
     {
@@ -2297,7 +2297,7 @@ class KO7_ORM extends Model implements Serializable
      * @param   mixed   $column  column name or array($column, $alias) or object
      * @param   string  $op      logic operator
      * @param   mixed   $value   column value
-     * @return  ORM
+     * @return  static
      */
     public function or_having($column, $op, $value = null)
     {
@@ -2313,7 +2313,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Alias of and_having_open()
      *
-     * @return  ORM
+     * @return  static
      */
     public function having_open()
     {
@@ -2323,7 +2323,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Opens a new "AND HAVING (...)" grouping.
      *
-     * @return  ORM
+     * @return  static
      */
     public function and_having_open()
     {
@@ -2339,7 +2339,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Opens a new "OR HAVING (...)" grouping.
      *
-     * @return  ORM
+     * @return  static
      */
     public function or_having_open()
     {
@@ -2355,7 +2355,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Closes an open "AND HAVING (...)" grouping.
      *
-     * @return  ORM
+     * @return  static
      */
     public function having_close()
     {
@@ -2365,7 +2365,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Closes an open "AND HAVING (...)" grouping.
      *
-     * @return  ORM
+     * @return  static
      */
     public function and_having_close()
     {
@@ -2381,7 +2381,7 @@ class KO7_ORM extends Model implements Serializable
     /**
      * Closes an open "OR HAVING (...)" grouping.
      *
-     * @return  ORM
+     * @return  static
      */
     public function or_having_close()
     {
@@ -2398,7 +2398,7 @@ class KO7_ORM extends Model implements Serializable
      * Start returning results after "OFFSET ..."
      *
      * @param   integer   $number  starting result number
-     * @return  ORM
+     * @return  static
      */
     public function offset($number)
     {
@@ -2415,7 +2415,7 @@ class KO7_ORM extends Model implements Serializable
      * Enables the query to be cached for a specified amount of time.
      *
      * @param   integer  $lifetime  number of seconds to cache
-     * @return  ORM
+     * @return  static
      * @uses    KO7::$cache_life
      */
     public function cached($lifetime = null)
@@ -2434,7 +2434,7 @@ class KO7_ORM extends Model implements Serializable
      *
      * @param   string   $param  parameter key to replace
      * @param   mixed    $value  value to use
-     * @return  ORM
+     * @return  static
      */
     public function param($param, $value)
     {
@@ -2452,7 +2452,7 @@ class KO7_ORM extends Model implements Serializable
      *
      * @param   mixed  $columns  column names
      * @param   ...
-     * @return  ORM
+     * @return  static
      */
     public function using(...$columns)
     {
