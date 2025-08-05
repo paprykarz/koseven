@@ -1086,7 +1086,7 @@ class KO7_ORM extends Model implements Serializable
      * Finds multiple database rows and returns an iterator of the rows found.
      *
      * @throws KO7_Exception
-     * @return Database_Result
+     * @return ORM|Database_Result<static>
      */
     public function find_all()
     {
