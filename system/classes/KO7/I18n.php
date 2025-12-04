@@ -114,7 +114,7 @@ class KO7_I18n {
 			$table = I18n::load($lang);
 
 			// Return the translated string if it exists
-			$string = $table[$string] ?? $string;
+			$string = $table[$string ?? ''] ?? $string;
 		}
 
 		return empty($values) ? $string : strtr($string, $values);
