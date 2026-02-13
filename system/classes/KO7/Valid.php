@@ -399,7 +399,7 @@ class KO7_Valid
     /**
      * Checks whether a string consists of digits only (no dots or dashes).
      */
-    public static function digit(?string $str, $utf8 = false): bool
+    public static function digit(string|int|null $str, $utf8 = false): bool
     {
         if ($utf8 === true) {
             return (bool) preg_match('/^\pN++$/uD', (string) $str);
